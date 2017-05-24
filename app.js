@@ -13,7 +13,7 @@ const ensure       = require('connect-ensure-login');
 
 const app = express();
 
-mongoose.connect('http://locahost:3000/');
+mongoose.connect('mongodb://localhost/tripdb');
 
 
 // view engine setup
@@ -21,7 +21,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Trip App';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -34,6 +34,9 @@ app.use(layouts);
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const authRoutes = require('./routes/auth-routes');
+app.use('/', authRoutes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
