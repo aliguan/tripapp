@@ -12,6 +12,8 @@ const userSchema = new Schema (
 
         facebookID: { type: String },
 
+        trips: [ TripsSchema ]
+
     },
     {
         timestamps: true
