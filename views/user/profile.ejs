@@ -1,0 +1,37 @@
+<div class="row">
+
+    <div class="col-sm-4 col-sm-offset-4">
+        <div class="profile-pic">
+            <img src="<%= user.profilePic %>">
+            <h2>Hello <%= user.name %>!</h2>
+            <a href="#"><i class="fa fa-plus"></i> Add a Trip</a>
+        </div>
+    </div>
+
+</div>
+<div class="row addtrip">
+    <form class="tripform" action="/addtrip" method="post" enctype="multipart/form-data">
+        <label for="trip-name-input">Name of Your Trip </label>
+        <input id="trip-name-input" type="text" name="tripName">
+
+        <br>
+
+        <label for="trip-location-input">Where Did You Go? </label>
+        <input id="trip-location-input" type="text" name="tripLocation">
+
+        <br>
+
+        <label for="trip-content-input">Write about your Trip! </label>
+        <input id="trip-content-input" type="text" name="tripContent">
+
+        <br>
+
+        <label for="trip-thumbnail-upload">Upload Your Picture! </label>
+        <input id="trip-thumbnail-upload" type="file" name="tripThumbnail">
+
+        <br>
+
+        <button>Add Trip</button>
+    </form>
+
+</div>
