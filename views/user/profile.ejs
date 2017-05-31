@@ -4,13 +4,13 @@
         <div class="profile-pic">
             <img src="<%= user.profilePic %>">
             <h2>Hello <%= user.name %>!</h2>
-            <a href="#"><i class="fa fa-plus"></i> Add a Trip</a>
+            <a class="expandtripdiv" href="#"><i class="plussign fa fa-plus"></i> Add a Trip</a>
         </div>
     </div>
 
 </div>
 <div class="row addtrip">
-    <form class="tripform" action="/addtrip" method="post" enctype="multipart/form-data">
+    <form class="tripform" action="/profile" method="post" enctype="multipart/form-data">
         <label for="trip-name-input">Name of Your Trip </label>
         <input id="trip-name-input" type="text" name="tripName">
 
@@ -34,4 +34,24 @@
         <button>Add Trip</button>
     </form>
 
+</div>
+
+<div class="row">
+    <% if (trips.length === 0) { %>
+    <h2>You dont have any rooms yet.</h2>
+    <br>
+<% } else { %>
+<h2>Your Trips</h2>
+
+
+<ul>
+    <% trips.forEach((oneTrip) => { %>
+        <li>
+            <h3><%= oneRoom.name %></h3>
+            <p><%= oneRoom.location%></p>
+            <img width="200px" src="<%= oneRoom.tripThumbnail %>">
+        <li>
+    <% }) %>
+
+<% } %>
 </div>

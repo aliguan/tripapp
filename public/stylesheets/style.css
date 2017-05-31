@@ -17,5 +17,9 @@ a {
 
 .addtrip {
     background-color: lightblue;
+    display: none;
+}
+
+.tripform {
     padding: 20px;
 }

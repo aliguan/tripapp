@@ -1,13 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose     = require('mongoose');
 
-const Schema = mongoose.Schema;
+const Schema       = mongoose.Schema;
+const Trip         = require('./trip-model.js');
 
-const TripsSchema =  new Schema ({
-    name: String,
-    authorId: { type: Schema.Types.ObjectId },
-    location: String,
-    content: String,
-});
 
 const userSchema = new Schema (
     {
@@ -18,9 +13,6 @@ const userSchema = new Schema (
         encryptedPass: { type: String },
 
         facebookID: { type: String },
-
-        trips: [ TripsSchema ]
-
     },
     {
         timestamps: true
@@ -28,6 +20,6 @@ const userSchema = new Schema (
 
 );
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('users', userSchema);
 
 module.exports = User;
