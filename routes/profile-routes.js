@@ -15,46 +15,6 @@ profileRoutes.get('/profile', ensure.ensureLoggedIn('/login'), (req, res, next) 
     res.render('user/profile.ejs');
 });
 
-var uploadTripPic = multer({ dest: './public/uploads/' });
 
-profileRoutes.post('/profile', ensure.ensureLoggedIn('/login'), uploadTripPic.single('tripThumbnail'), (req, res, next) => {
-    const newTrip = new Trip({
-        name: req.body.tripName,
-        authorId: req.user._id,
-        location: req.body.tripLocation,
-        content: req.body.tripContent,
-        tripThumbnail: `/uploads/${req.file.filename}`,
-    });
-
-    newTrip.save((err) => {
-        if(err) {
-            next(err);
-            return;
-        }
-        res.redirect('/');
-    });
-});
-
-
-// profileRoutes.get('/profile',
-//     ensure.ensureLoggedIn('/login'),
-//
-//     (req, res, next) => {
-//         Trip.find(
-//             { authorId: req.user._id },
-//             (err, tripsList) => {
-//                 if(err) {
-//                     next(err);
-//                     return;
-//                 }
-//
-//                 res.render('user/profile.ejs', {
-//                     trips: tripsList,
-//                 });
-//             }
-//         );
-//     }
-//
-// );
 
 module.exports = profileRoutes;

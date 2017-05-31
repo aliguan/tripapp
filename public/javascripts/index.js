@@ -10,3 +10,21 @@ $( document ).ready(function() {
             $('.plussign').toggleClass('fa-minus');
         });
 });
+
+
+function getTrips() {
+  $.ajax({
+    url: "/profile",
+    method: "GET",
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (err) {
+      console.log(err);
+    },
+});
+}
+
+$(".addtrip").on('click', function(){
+    getTrips();
+});
