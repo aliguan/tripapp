@@ -9,27 +9,6 @@ const flash        = require('connect-flash');
 
 const apiRoutes   = express.Router();
 
-var uploadTripPic = multer({ dest: './public/uploads/' });
-
-apiRoutes.post('/profile', ensure.ensureLoggedIn('/login'), uploadTripPic.single('tripThumbnail'), (req, res, next) => {
-    const newTrip = new Trip({
-        name: req.body.tripName,
-        authorId: req.user._id,
-        location: req.body.tripLocation,
-        content: req.body.tripContent,
-        tripThumbnail: `/uploads/${req.file.filename}`,
-    });
-
-    newTrip.save((err) => {
-        if(err) {
-            next(err);
-            return;
-        }
-        res.redirect('/');
-    });
-});
-
-
 apiRoutes.get('/api/profile',
     ensure.ensureLoggedIn('/login'),
 
@@ -42,7 +21,7 @@ apiRoutes.get('/api/profile',
                     return;
                 }
 
-                res.json(tripsList);
+            res.json(tripsList);
             }
         );
     }

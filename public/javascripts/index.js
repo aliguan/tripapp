@@ -9,22 +9,35 @@ $( document ).ready(function() {
             $('.plussign').toggleClass('fa-plus');
             $('.plussign').toggleClass('fa-minus');
         });
-});
 
 
-function getTrips() {
-  $.ajax({
-    url: "/profile",
-    method: "GET",
-    success: function (response) {
-      console.log(response);
-    },
-    error: function (err) {
-      console.log(err);
-    },
-});
-}
+    function getTrips() {
+      $.ajax({
+        method: "GET",
+        url: "/api/profile",
 
-$(".addtrip").on('click', function(){
-    getTrips();
+        success: showTrips,
+        error: function (err) {
+          console.log(err);
+        },
+    });
+    }
+
+    $(".addtrip").on('click', function(){
+        getTrips();
+    });
+
+    function showTrips(trips) {
+        trips.forEach( (oneTrip) => {
+            const trip =
+            `<div class="col-sm-4">
+                <img class="tripThumb" src="${oneTrip.tripThumbnail}">
+                <p>${oneTrip.name}</p>
+            </div>`;
+
+            $('.trips').append(trip);
+        });
+
+    }
+
 });
