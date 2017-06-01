@@ -23,21 +23,24 @@ $( document ).ready(function() {
     });
     }
 
-    $(".addtrip").on('click', function(){
-        getTrips();
-    });
-
     function showTrips(trips) {
         trips.forEach( (oneTrip) => {
             const trip =
-            `<div class="col-sm-4">
-                <img class="tripThumb" src="${oneTrip.tripThumbnail}">
-                <p>${oneTrip.name}</p>
+            `<div class="col-sm-4 tripblock">
+                <div class="tripRec">
+                    <img class="tripThumb" src="${oneTrip.tripThumbnail}">
+                    <div class="tripdesc">
+                        <h2>${oneTrip.name}</h2>
+                        <p><em>${oneTrip.location}<em></p>
+                    </div>
+                </div>
             </div>`;
 
-            $('.trips').append(trip);
+            $('.tripContent').append(trip);
         });
 
     }
+
+    getTrips();
 
 });

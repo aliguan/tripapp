@@ -32,7 +32,7 @@ profileRoutes.post('/profile', ensure.ensureLoggedIn('/login'), uploadTripPic.si
             return;
         }
         res.json();
-        res.direct('/profile');
+        res.redirect('/profile');
     });
 });
 
