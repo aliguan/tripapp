@@ -41,6 +41,11 @@ tripsRoutes.post('/:id', updateTripPic.single('updateThumbnail'), (req, res, nex
 tripsRoutes.post('/:id/delete', (req, res, next) => {
     const tripId = req.params.id;
 
+    Trip.findByIdAndRemove(tripId, (req, res, next) => {
+
+    });
+
+    res.redirect('/profile');
 });
 
 module.exports = tripsRoutes;
