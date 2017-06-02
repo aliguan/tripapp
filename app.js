@@ -88,6 +88,9 @@ app.use('/', profileRoutes);
 const apiRoutes = require('./routes/api-routes');
 app.use('/', apiRoutes);
 
+const tripsRoutes = require('./routes/trip-routes');
+app.use('/trips', tripsRoutes);
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');

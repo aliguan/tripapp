@@ -1,0 +1,25 @@
+
+<form action="/trips/<%= trip._id %>" method="POST" enctype="multipart/form-data">
+  <label for="update-name-input">Trip Name</label>
+  <input type="text" id="name" name="updateName" value="<%= trip.name %>">
+  <br>
+  <label for="update-location-input">Location</label>
+  <input type="text" name="updateLocation" id="updateLocation" value="<%= trip.location %>">
+  <br>
+
+  <label for="update-date-input">Date </label>
+  <input type="date" name="updateDate" id="updateDate" value="<%= trip.date %>">
+  <br>
+
+  <label for="update-content-input">Write About Your Trip</label>
+  <textarea type="text" name="updateContent" id="updateContent"><%= trip.content %></textarea>
+  <br>
+
+  <img width="100px" src="<%= trip.tripThumbnail %>">
+  <br>
+  <label for="update-thumbnail-input">Update Thumbnail</label>
+  <input type="file" name="updateThumbnail" id="updateThumbnail">
+  <br>
+
+  <button type="submit">Update Trip</button>
+</form>

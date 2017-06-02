@@ -33,7 +33,11 @@ $( document ).ready(function() {
                         <h2>${oneTrip.name}</h2>
                         <p><em>${oneTrip.location}<em></p>
                     </div>
+                    <div>
+                        <a href="/trips/edit/${oneTrip._id}">Edit</a>
+                    </div>
                 </div>
+
             </div>`;
 
             $('.tripContent').append(trip);

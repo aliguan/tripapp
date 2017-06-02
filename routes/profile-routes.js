@@ -22,6 +22,7 @@ profileRoutes.post('/profile', ensure.ensureLoggedIn('/login'), uploadTripPic.si
         name: req.body.tripName,
         authorId: req.user._id,
         location: req.body.tripLocation,
+        date: req.body.tripDate,
         content: req.body.tripContent,
         tripThumbnail: `/uploads/${req.file.filename}`,
     });
