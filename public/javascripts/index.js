@@ -36,6 +36,9 @@ $( document ).ready(function() {
                     <div>
                         <a href="/trips/edit/${oneTrip._id}">Edit</a>
                     </div>
+                    <form action="/trips/${oneTrip._id}/delete" method="POST">
+                        <button class="deletebtn" type="submit"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    </form>
                 </div>
 
             </div>`;

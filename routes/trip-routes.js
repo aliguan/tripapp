@@ -9,16 +9,38 @@ const flash        = require('connect-flash');
 
 const tripsRoutes   = express.Router();
 
+
 tripsRoutes.get('/edit/:id', (req, res, next) => {
     const tripId = req.params.id;
-
     Trip.findById(tripId, (err, trip) => {
         if (err) { return next(err); }
     res.render('trips/edit-trip.ejs', { trip: trip });
   });
 });
 
-// tripRoutes.post();
+var updateTripPic = multer({ dest: './public/uploads/' });
 
+
+tripsRoutes.post('/:id', updateTripPic.single('updateThumbnail'), (req, res, next) => {
+    const tripId = req.params.id;
+    const tripUpdates = {
+        name: req.body.updateName,
+        location: req.body.updateLocation,
+        date: req.body.updateDate,
+        content: req.body.updateContent,
+        tripThumbnail: `/uploads/${req.file.filename}`
+    };
+
+    Trip.findByIdAndUpdate(tripId, tripUpdates, (err, trip) => {
+        if (err){ return next(err); }
+            return res.redirect('/profile');
+        });
+});
+
+
+tripsRoutes.post('/:id/delete', (req, res, next) => {
+    const tripId = req.params.id;
+
+});
 
 module.exports = tripsRoutes;
