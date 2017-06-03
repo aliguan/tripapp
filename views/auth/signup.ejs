@@ -1,23 +1,26 @@
 <form class="signupForm" action="/signup" method="post" enctype="multipart/form-data">
-    <label for="signup-name-input">Name </label>
-    <input id="signup-name-input" type="text" name="signupName">
+    <h3 style="text-align: center">Create an Account</h3>
+    <p style="text-align: center; margin: 0; color: #464646;"><em>Go Wander</em></p>
+    <label for="signup-name-input"></label>
+    <input id="signup-name-input" type="text" name="signupName" placeholder="Name">
 
     <br>
 
-    <label for="signup-username-input">Username </label>
-    <input id="signup-username-input" type="text" name="signupUsername">
+    <label for="signup-username-input"></label>
+    <input id="signup-username-input" type="text" name="signupUsername" placeholder="Username">
 
     <br>
 
-    <label for="signup-name-password">Password </label>
-    <input id="signup-name-password" type="password" name="signupPassword">
+    <label for="signup-name-password"></label>
+    <input id="signup-name-password" type="password" name="signupPassword" placeholder="Password" >
 
     <br>
 
-    <label for="signup-name-pic">Upload Your Picture! </label>
-    <input id="signup-name-pic" type="file" name="signupProfilePic">
+    <label for="signup-name-pic">Choose Your Profile Pic</label>
+    <input style="background-color: white" id="signup-name-pic" type="file" name="signupProfilePic" placeholder="Upload A Profile Picture">
 
     <br>
-
-    <button>Sign Up</button>
+    <div class="signupBtn">
+        <button>Sign Up</button>
+    </div>
 </form>
