@@ -1,8 +1,8 @@
-$bodyfont: 'Didact Gothic', sans-serif;;
+$bodyfont: 'Didact Gothic', sans-serif;
 $green: #82c672;
 
 body {
-  font: 'Questrial', sans-serif;
+  font-family: $bodyfont;
   background: url(../images/bg.png) no-repeat center center fixed;
      -webkit-background-size: cover;
      -moz-background-size: cover;
@@ -15,6 +15,11 @@ body {
 
 h2 {
     font-size: 1em;
+    font-family: $bodyfont;
+}
+
+.trips, .hello h2 {
+    font-family: $bodyfont;
 }
 
 a {
