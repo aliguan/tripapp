@@ -11,6 +11,7 @@ body {
     overflow-x: hidden;
 }
 
+.row { margin: 0!important; padding: 0 }
 
 h2 {
     font-size: 1em;
@@ -156,10 +157,51 @@ nav ul li:hover {
     border-radius: 50%;
 
 }
+.expandtripdiv {
+    width: 120px;
+    background: #82c672;
+
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 7px;
+    margin: 10px 5px;
+    transition: 0.5s ease;
+    font-size: 16px!important;
+}
+.expandtripdiv:visited {
+    color: white;
+    text-decoration: none!important;
+}
+
+
+.expandtripdiv:hover {
+    text-decoration: none;
+    color: white;
+}
+
 
 .addtrip {
-    background-color: lightblue;
+    font-family: $bodyfont;
+    background-color: white;
+    width: 80%;
+    margin: auto !important;
+    padding: 20px;
     display: none;
+    color: $green;
+    font-size: 26px;
+    input, textarea  {
+        border: none;
+        border-bottom: 3px solid $green;
+        outline: none;
+        width: 90%;
+        margin: 0px 20px;
+    }
+    textarea {
+        margin-top: 50px;
+         border: 3px solid $green
+    }
 }
 
 .signupForm, .loginForm {
@@ -196,6 +238,19 @@ nav ul li:hover {
 	    padding: 10px 5px;
 	    margin: 10px 5px;
     }
+}
+
+.tripform button {
+    width: 100px;
+    background: #82c672;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    font-size: 16px;
 }
 
 .signupBtn {
@@ -236,4 +291,12 @@ nav ul li:hover {
 
 .deletebtn {
     border-radius: 50%;
+}
+
+.hidden {
+    display: none;
+}
+
+.tripthumbup {
+    cursor: pointer;
 }

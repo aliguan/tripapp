@@ -4,39 +4,47 @@
         <div class="profile-pic">
             <img src="<%= user.profilePic %>">
             <h2>Hello <%= user.name %>!</h2>
-            <a class="expandtripdiv" href="#"><i class="plussign fa fa-plus"></i> Add a Trip</a>
+            <a class="hvr-grow expandtripdiv" href="#"><i class="plussign fa fa-plus"></i> Add a Trip</a>
         </div>
     </div>
 
 </div>
 <div class="row addtrip">
     <form class="tripform" action="/profile" method="post" enctype="multipart/form-data">
-        <label for="trip-name-input">Name of Your Trip </label>
-        <input id="trip-name-input" type="text" name="tripName">
+    <div class="row">
+        <div style="text-align: center;" class="col-md-6">
+            <label for="trip-name-input"> </label>
+            <input id="trip-name-input" type="text" name="tripName" placeholder="Name of Your Trip" >
+        </div>
 
+        <div style="text-align: center;" class="col-md-6">
+            <label for="trip-location-input"></label>
+            <input id="trip-location-input" type="text" name="tripLocation" placeholder="Where Did You Go?">
+        </div>
+    </div>
+
+    <div class="row">
+        <%# <div style="text-align: center;" class="col-md-6">
+            <label for="trip-date-input"> </label>
+            <input id="trip-date-input" type="date" name="tripDate" placeholder="Date">
+        </div>%>
+        <div style="text-align: center;" class="col-md-12">
+            <label for="trip-content-input"></label>
+            <textarea id="trip-content-input" type="text" name="tripContent" placeholder="Write about your Trip!"></textarea>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div style="text-align: center;" class="col-md-12">
+            <input name="tripThumbnail" type="file" id="trip-thumbnail-upload" class="hidden"/>
+            <label class="tripthumbup" for="trip-thumbnail-upload"><i class="fa fa-plus"></i> Add Pictures</label>
+        </div>
+    </div>
         <br>
-
-        <label for="trip-location-input">Where Did You Go? </label>
-        <input id="trip-location-input" type="text" name="tripLocation">
-
-        <br>
-
-        <label for="trip-date-input">Date </label>
-        <input id="trip-date-input" type="date" name="tripDate">
-
-        <br>
-
-        <label for="trip-content-input">Write about your Trip! </label>
-        <input id="trip-content-input" type="text" name="tripContent">
-
-        <br>
-
-        <label for="trip-thumbnail-upload">Upload Your Picture! </label>
-        <input id="trip-thumbnail-upload" type="file" name="tripThumbnail">
-
-        <br>
-
-        <button>Add Trip</button>
+        <div class="signupBtn">
+            <button>Post Trip</button>
+        </div>
     </form>
 
 </div>
