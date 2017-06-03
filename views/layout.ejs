@@ -3,24 +3,31 @@
   <head>
     <meta charset="utf-8">
     <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/styles.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
     <script src="https://use.fontawesome.com/364579f4ad.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/javascripts/index.js"></script>
   </head>
-  <nav>
-      <ul>
-            <li><a href="/">Home</a></li>
-          <% if ( typeof user !== 'undefined' ) { %>
-              <li><a href="/profile">Profile</a></li>
-              <li><a href="/logout">Log Out</a></li>
-          <% } else { %>
-              <li><a href="/login">Login</a></li>
-              <li><a href="/signup">Sign Up</a></li>
-         <% } %>
-      </ul>
+  <nav class="row">
+      <div class="logo col-sm-8">
+          <img src="images/logo.png">
+      </div>
+      <div class="col-sm-4">
+          <ul>
+                    <li><div><a href="/">Home</a></div></li>
+              <% if ( typeof user !== 'undefined' ) { %>
+                  <li><div><a href="/profile">Profile</a></div></li>
+                  <li><div><a href="/logout">Log Out</a></div></li>
+              <% } else { %>
+
+                  <li><div><a href="/signup">Sign Up</a></div></li>
+                  <li><div><a href="/login">Login</a></div></li>
+             <% } %>
+          </ul>
+      </div>
   </nav>
   <body>
     <div class="container-fluid">

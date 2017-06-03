@@ -48,6 +48,6 @@ $( document ).ready(function() {
 
     }
 
-    getTrips();
+        getTrips();
 
 });

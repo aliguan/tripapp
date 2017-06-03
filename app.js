@@ -57,8 +57,10 @@ passport.use('local', new LocalStrategy((username, password, next) => {
   });
 }));
 
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -68,6 +70,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
+
+
+//REDIRECTS IF USER IS NOT LOGGED IN
+// app.use(function(req, res, next) {
+//     if (typeof user === 'undefined'){
+//         res.render('auth/signup.ejs');
+//     }   else{
+//         next();
+//     }
+// });
 
 app.use((req, res, next) => {
     if(req.user) {
