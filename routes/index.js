@@ -11,10 +11,20 @@ const flash        = require('connect-flash');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index');
+    res.render('index');
+
 });
 
-router.post('/', (req, res, next) => {
+router.get('/featured', (req, res, next) => {
+  User.find( {}, 'name profilePic', (err, usersLive) => {
+      if(err) { return next(err); }
+       res.render('featured', { users: usersLive } );
+  });
+
+});
+
+
+router.post('/fea', (req, res, next) => {
     const userSearchLoc = req.body.searchLocation;
 
     Trip.find(
