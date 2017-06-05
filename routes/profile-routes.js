@@ -33,8 +33,9 @@ profileRoutes.post('/profile', ensure.ensureLoggedIn('/login'), uploadTripPic.si
             return;
         }
         res.json();
-        res.redirect('/profile');
+
     });
+    res.redirect('/profile');
 });
 
 module.exports = profileRoutes;
