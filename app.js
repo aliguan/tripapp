@@ -15,7 +15,7 @@ const bcrypt       = require('bcrypt');
 const User         = require('./models/user-model.js');
 const app          = express();
 
-mongoose.connect('mongodb://localhost/tripdb');
+mongoose.connect('mongodb://heroku_sl7gm73b:kg7tnlujnmo9pp2v86cnia1ju@ds163301.mlab.com:63301/heroku_sl7gm73b');
 
 app.use(session({
   secret: "trip-app",
