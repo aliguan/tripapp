@@ -10,7 +10,7 @@ const flash        = require('connect-flash');
 const tripsRoutes   = express.Router();
 
 
-tripsRoutes.get('/edit/:id', (req, res, next) => {
+tripsRoutes.get('/trips/:id/edit', (req, res, next) => {
     const tripId = req.params.id;
     Trip.findById(tripId, (err, trip) => {
         if (err) { return next(err); }
@@ -21,7 +21,13 @@ tripsRoutes.get('/edit/:id', (req, res, next) => {
 var updateTripPic = multer({ dest: './public/uploads/' });
 
 
-tripsRoutes.post('/:id', updateTripPic.single('updateThumbnail'), (req, res, next) => {
+tripsRoutes.get('/trips/:id', (req, res, next) => {
+    res.render('trips/trip-view');
+});
+
+
+
+tripsRoutes.post('/trips/:id', updateTripPic.single('updateThumbnail'), (req, res, next) => {
     const tripId = req.params.id;
     const tripUpdates = {
         name: req.body.updateName,
@@ -38,7 +44,7 @@ tripsRoutes.post('/:id', updateTripPic.single('updateThumbnail'), (req, res, nex
 });
 
 
-tripsRoutes.post('/:id/delete', (req, res, next) => {
+tripsRoutes.post('/trips/:id/delete', (req, res, next) => {
     const tripId = req.params.id;
 
     Trip.findByIdAndRemove(tripId, (req, res, next) => {
