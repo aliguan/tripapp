@@ -22,9 +22,12 @@ var updateTripPic = multer({ dest: './public/uploads/' });
 
 
 tripsRoutes.get('/trips/:id', (req, res, next) => {
-    res.render('trips/trip-view');
+    const tripId = req.params.id;
+    Trip.findById(tripId, (err, trip) => {
+        if (err) { return next(err); }
+    res.render('trips/trip-view.ejs', { trip: trip });
+  });
 });
-
 
 
 tripsRoutes.post('/trips/:id', updateTripPic.single('updateThumbnail'), (req, res, next) => {
@@ -47,7 +50,7 @@ tripsRoutes.post('/trips/:id', updateTripPic.single('updateThumbnail'), (req, re
 tripsRoutes.post('/trips/:id/delete', (req, res, next) => {
     const tripId = req.params.id;
 
-    Trip.findByIdAndRemove(tripId, (req, res, next) => {
+        Trip.findByIdAndRemove(tripId, (req, res, next) => {
 
     });
 
