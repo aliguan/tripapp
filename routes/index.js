@@ -23,8 +23,7 @@ router.get('/featured', (req, res, next) => {
 
 });
 
-
-router.post('/featured', (req, res, next) => {
+router.post('/', (req, res, next) => {
     const userSearchLoc = req.body.searchLocation;
 
     Trip.find(
