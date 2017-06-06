@@ -29,7 +29,13 @@ router.post('/', (req, res, next) => {
     Trip.find(
         { location: userSearchLoc }, (err, tripsFound) => {
             if(err) { return next(err); }
-            res.render('trips/tripsinlocation.ejs', { trips: tripsFound });
+            tripsFound.forEach((trip) => {
+                User.findById({ _id: trip.authorId } , (err, user) => {
+                if(err) { return next(err); }
+
+                res.render('trips/tripsinlocation.ejs', { trips: tripsFound, user: user });
+            });
+        });
         });
 });
 

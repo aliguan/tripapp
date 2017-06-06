@@ -1,1 +1,29 @@
-<%= trips %>
+<div class="row">
+    <div class="poop tripContainer">
+    <h1 class="font">Trips Found</h1>
+<% if (trips.length > 0) { %>
+    <% trips.forEach((oneTrip) => { %>
+    <div class="font col-sm-6 col-md-4 col-lg-3 tripblock">
+        <div class="tripRec">
+            <a href="/trips/<%= oneTrip._id%>"><img class="tripThumb" src="<%= oneTrip.tripThumbnail %>"></a>
+            <div class="tripdesc">
+                <h2><%= oneTrip.name %></h2>
+                <div class="hr">
+                </div>
+                <p><em><%= oneTrip.location %></em></p>
+                <p><%= oneTrip.content %></p>
+                <p>Curated by: <%= user.name %></p>
+            </div>
+            <div class="hr">
+            </div>
+        </div>
+
+    </div>
+    <%  })  %>
+ <% } else { %>
+    <h2> There are no trips in this city. Try again.</h2>
+ <% }  %>
+ </div>
+</div>
+<div class="clearfix">
+</div>

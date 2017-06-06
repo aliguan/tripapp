@@ -1,7 +1,7 @@
 $bodyfont: 'Didact Gothic', sans-serif;
 $green: #82c672;
 
-body {
+body  {
   font-family: $bodyfont;
   background: url(../images/bg.png) no-repeat center center fixed;
      -webkit-background-size: cover;
@@ -9,6 +9,14 @@ body {
      -o-background-size: cover;
      background-size: cover;
     overflow-x: hidden;
+}
+
+.poop {
+    height: 700px;
+}
+
+.font {
+    font-family: $bodyfont;
 }
 
 .row { margin: 0!important; padding: 0 }
