@@ -26,7 +26,7 @@ tripsRoutes.get('/trips/:id', (req, res, next) => {
     const tripId = req.params.id;
     Trip.findById(tripId, (err, trip) => {
         if (err) { return next(err); }
-        Destination.find(tripId, (error, destinations) => {
+        Destination.find({ tripId: tripId}, (error, destinations) => {
           if (error) { next(error); }
           else {
             res.render('trips/trip-view.ejs', { destinations: destinations, trip: trip });
@@ -52,17 +52,13 @@ tripsRoutes.post('/trips/:id/edit', updateTripPic.single('updateThumbnail'), (re
         });
 });
 
-tripsRoutes.post('/trips/:id', (req, res, next) => {
+tripsRoutes.post('/trips/:id', ensure.ensureLoggedIn('/login'), (req, res, next) => {
     const tripId = req.params.id;
-    let location = {
-      type: 'Point',
-      coordinates: [req.body.longitude, req.body.latitude]
-    };
 
       const newDest = new Destination( {
         name:        req.body.destname,
         description: req.body.destdesc,
-        location:    location,
+        address: req.body.destaddress,
         tripId: tripId,
     });
 

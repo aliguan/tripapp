@@ -5,9 +5,9 @@ const Schema = mongoose.Schema;
 
 const DestinationSchema =  new Schema ({
     name: String,
-    location: { type: { type: String }, coordinates: [Number] },
     review: String,
     tripId: { type: Schema.Types.ObjectId },
+    address: String,
 });
 DestinationSchema.index({ location: '2dsphere' });
 

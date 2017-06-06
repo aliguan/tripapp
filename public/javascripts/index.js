@@ -55,26 +55,53 @@ $( document ).ready(function() {
     }
 
         getTrips();
+jiggle();
+});
+
 
 //GOOGLE MAP
-    const sol = {
+
+    var sol = {
             lat: 22.286394,
             lng: 114.149139
     };
 
-    const map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: sol
-    });
+  var geocoder;
+  var map;
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var mapOptions = {
+      zoom: 8,
+      center: sol,
+  };
+    map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: sol
+      });
+  }
 
+
+function jiggle() {
     let markers = [];
     mydest.forEach(function(destination){
-        let title = destination.name;
-        let position = {
-            lat: destination.location.coordinates[1],
-            lng: destination.location.coordinates[0]
-          };
+        var address = destination.address;
+        geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == 'OK') {
+        console.log(results[0]);
+
+
+            let title = destination.name;
+            let position = results[0].geometry.location;
+
           var pin = new google.maps.Marker({ position, map, title  });
           markers.push(pin);
-        });
-});
+
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+    console.log(markers);
+  });
+  });
+}
+
+    initialize();
