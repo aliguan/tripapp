@@ -1,9 +1,6 @@
 $( document ).ready(function() {
         $('.expandtripdiv').on('click', function() {
-            $('.addtrip').animate({
-                opacity: 1,
-                height: 'toggle',
-            }, 450 );
+            $('.addtrip').toggle();
         });
         $('.expandtripdiv').on('click', function() {
             $('.plussign').toggleClass('fa-plus');

@@ -25,7 +25,6 @@ profileRoutes.post('/profile', ensure.ensureLoggedIn('/login'), uploadTripPic.si
         location: req.body.tripLocation,
         content: req.body.tripContent,
         tripThumbnail: `/uploads/${req.file.filename}`,
-        destinations:  newDest,
     });
 
     newTrip.save((err) => {

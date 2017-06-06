@@ -254,7 +254,18 @@ nav ul li:hover {
     }
 }
 
-.tripform, #adddest button {
+.tripform, #adddest, .buttonnnn button {
+
+    font-weight: bold;
+    color: $green;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    font-size: 16px;
+}
+#adddest button {
     width: 100px;
     background: #82c672;
     font-weight: bold;
@@ -264,12 +275,25 @@ nav ul li:hover {
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px;
+    float: right;
+    font-size: 12px;
+}
+
+.buttonnnn button {
+    background-color: #82c672;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
     font-size: 16px;
 }
-#adddest button {
-    width: 120px;
-    font-size: 12px;
-    float: right;
+
+.addtrip input, .addtrip textarea {
+    color: $green;
 }
 
 #adddest {
