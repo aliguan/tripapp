@@ -18,13 +18,14 @@ profileRoutes.get('/profile', ensure.ensureLoggedIn('/login'), (req, res, next) 
 var uploadTripPic = multer({ dest: './public/uploads/' });
 
 profileRoutes.post('/profile', ensure.ensureLoggedIn('/login'), uploadTripPic.single('tripThumbnail'), (req, res, next) => {
+
     const newTrip = new Trip({
         name: req.body.tripName,
         authorId: req.user._id,
         location: req.body.tripLocation,
-        date: req.body.tripDate,
         content: req.body.tripContent,
         tripThumbnail: `/uploads/${req.file.filename}`,
+        destinations:  newDest,
     });
 
     newTrip.save((err) => {

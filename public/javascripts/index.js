@@ -56,4 +56,25 @@ $( document ).ready(function() {
 
         getTrips();
 
+//GOOGLE MAP
+    const sol = {
+            lat: 22.286394,
+            lng: 114.149139
+    };
+
+    const map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: sol
+    });
+
+    let markers = [];
+    mydest.forEach(function(destination){
+        let title = destination.name;
+        let position = {
+            lat: destination.location.coordinates[1],
+            lng: destination.location.coordinates[0]
+          };
+          var pin = new google.maps.Marker({ position, map, title  });
+          markers.push(pin);
+        });
 });

@@ -7,7 +7,6 @@ const TripsSchema =  new Schema ({
     name: String,
     authorId: { type: Schema.Types.ObjectId },
     location: String,
-    date: String,
     content: String,
     tripThumbnail: String,
 });
