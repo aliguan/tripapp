@@ -75,7 +75,7 @@ jiggle();
       center: sol,
   };
     map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 14,
+          zoom: 13,
           center: sol
       });
   }
@@ -88,7 +88,7 @@ function jiggle() {
         geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == 'OK') {
         console.log(results[0]);
-
+            map.setCenter(results[0].geometry.location);
 
             let title = destination.name;
             let position = results[0].geometry.location;
@@ -99,8 +99,8 @@ function jiggle() {
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
-    console.log(markers);
   });
+
   });
 }
 

@@ -57,7 +57,7 @@ tripsRoutes.post('/trips/:id', ensure.ensureLoggedIn('/login'), (req, res, next)
 
       const newDest = new Destination( {
         name:        req.body.destname,
-        description: req.body.destdesc,
+        review: req.body.destdesc,
         address: req.body.destaddress,
         tripId: tripId,
     });
