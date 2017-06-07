@@ -52,7 +52,7 @@ $( document ).ready(function() {
     }
 
         getTrips();
-jiggle();
+        jiggle();
 });
 
 
@@ -77,7 +77,7 @@ jiggle();
       });
   }
 
-
+ 
 function jiggle() {
     let markers = [];
     mydest.forEach(function(destination){
