@@ -16,8 +16,8 @@ const User         = require('./models/user-model.js');
 const app          = express();
 
 
-mongoose.connect('mongodb://heroku_sl7gm73b:kg7tnlujnmo9pp2v86cnia1ju@ds163301.mlab.com:63301/heroku_sl7gm73b');
-// mongoose.connect('mongodb://localhost/tripdb');
+// mongoose.connect('mongodb://heroku_sl7gm73b:kg7tnlujnmo9pp2v86cnia1ju@ds163301.mlab.com:63301/heroku_sl7gm73b');
+mongoose.connect('mongodb://localhost/tripdb');
 
 app.use(session({
   secret: "trip-app",
@@ -67,7 +67,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(logger('dev'));
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
