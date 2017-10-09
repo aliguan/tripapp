@@ -31,3 +31,4 @@ node_modules
 npm-debug.log
 
 public/uploads
+package-lock.json
