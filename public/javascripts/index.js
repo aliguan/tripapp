@@ -29,7 +29,7 @@ $( document ).ready(function() {
                 <div class="tripRec">
                     <a href="/trips/${oneTrip._id}"><img class="tripThumb" src="${oneTrip.tripThumbnail}"></a>
                     <div class="tripdesc">
-                        <h2>${oneTrip.name}</h2>
+                        <a href="/trips/${oneTrip._id}"><h2>${oneTrip.name}</h2></a>
                         <div class="hr">
                         </div>
                         <p><em>${oneTrip.location}</em></p>
